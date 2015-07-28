@@ -3,14 +3,18 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    menberName[0] = "伊藤";
-    menberName[1] = "大石";
-    menberName[2] = "中山1";
-    menberName[3] = "中山2";
-    menberName[4] = "松木";
-    menberName[5] = "松本";
-    menberName[6] = "丸";
-    
+    //日本語不可
+    menberName[0] = "ito";
+    menberName[1] = "ooisi";
+    menberName[2] = "nakayama1";
+    menberName[3] = "nakayama2";
+    menberName[4] = "matuki";
+    menberName[5] = "matumoto";
+    menberName[6] = "maru";
+    drawFont.loadFont("Arial.ttf", 72);
+
+    isStop = false;
+    int ran = 0;
 }
 
 //--------------------------------------------------------------
@@ -20,6 +24,14 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    if (isStop) {
+        ran = (int)ofRandom(0, 6);
+        drawFont.drawString(menberName[ran], 100, 100);
+    }else{
+        drawFont.drawString(menberName[ran], 100, 100);
+    }
+    
    
 }
 
@@ -44,8 +56,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-        int aa = (int)ofRandom(0, 6);
-        cout<< menberName[aa] << endl;
+    isStop = !isStop;
 }
 
 //--------------------------------------------------------------

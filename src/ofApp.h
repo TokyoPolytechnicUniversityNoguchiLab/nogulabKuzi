@@ -19,4 +19,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     string menberName[7];
+    ofTrueTypeFont drawFont;
+    bool isStop;
+    int ran;
 };
